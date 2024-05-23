@@ -4,23 +4,28 @@ Learn how to effortlessly convert handwritten text into editable digital text us
 ## Run
 The provided set of commands is a series of instructions for creating a Python environment, activating it, installing dependencies, and running a Python script. Let me break down each step for you:
 
-### Create enviornment 
-``` 
-conda create --name trocr-large python=3.11
+### Create virtual environment 
+```sh
+python -m venv trocr-large
 ```
-This command creates a new Conda virtual environment named "trocr-large" with Python version 3.11. Virtual environments are isolated environments where you can install specific packages and dependencies without affecting your system-wide Python installation.
+This command creates a new virtual environment named "trocr-large" using the built-in `venv` module. Virtual environments are isolated environments where you can install specific packages and dependencies without affecting your system-wide Python installation.
 
-### Activate the virtual enviornment
-```
-conda activate trocr-large 
-```
+### Activate the virtual environment
+- On Windows:
+  ```sh
+  trocr-large\Scripts\activate
+  ```
+- On macOS/Linux:
+  ```sh
+  source trocr-large/bin/activate
+  ```
 After creating the environment, you need to activate it. This ensures that any subsequent package installations or code executions occur within the isolated environment you just created.
 
 ### Install dependencies
-```
-conda install -c huggingface transformers
-conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
-conda install -c conda-forge gradio
+```sh
+pip install transformers
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117
+pip install gradio
 ```
 These commands install the necessary dependencies into the "trocr-large" environment:
 - The first command installs the "transformers" package from the Hugging Face repository.
